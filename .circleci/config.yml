@@ -6,4 +6,4 @@ jobs:
     steps:
       - checkout
       - run: sudo pip install awscli
-      - run: aws s3 sync ~/project/ s3://test-s3awscd/ --delete
+      - run: aws s3 sync ~/project/ s3://test-s3awscd/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM --delete
