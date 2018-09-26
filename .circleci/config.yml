@@ -4,5 +4,6 @@ jobs:
     docker:
       - image: circleci/python:2.7-jessie
     steps:
+      - checkout
       - run: sudo pip install awscli
       - run: aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://test-s3awscd --delete
