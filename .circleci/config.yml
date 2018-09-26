@@ -1,6 +1,8 @@
 version: 2
 jobs:
   deploy:
+    docker:
+      - image: circleci/php:5-apache-node-browsers-legacy
     steps:
       - run: sudo pip install awscli
       - run: aws s3 sync /home/ubuntu/S3ContinuousDeploy s3://test-s3awscd --delete
