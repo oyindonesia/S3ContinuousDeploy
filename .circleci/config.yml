@@ -8,8 +8,8 @@ jobs:
       - run: sudo pip install awscli
       - run: sudo tar --exclude='.*' -czvf /tmp/$CIRCLE_PROJECT_REPONAME.tar.gz ~/project/
       - store_artifacts:
-          path: /tmp/$CIRCLE_PROJECT_REPONAME.tar.gz
-          destination: $CIRCLE_PROJECT_REPONAME.tar.gz
+          path: /tmp/'$CIRCLE_PROJECT_REPONAME'.tar.gz
+          destination: '$CIRCLE_PROJECT_REPONAME'.tar.gz
       - run: aws s3 cp /tmp/$CIRCLE_PROJECT_REPONAME.tar.gz s3://test-s3awscd/binaries/
 
 workflows:
