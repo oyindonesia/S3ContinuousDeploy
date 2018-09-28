@@ -10,9 +10,6 @@ jobs:
       - store_artifacts:
           path: /tmp/$CIRCLE_PROJECT_REPONAME.tar.gz
           destination: $CIRCLE_PROJECT_REPONAME.tar.gz
-      
-   deploy:
-    steps:
       - run: aws s3 cp /tmp/$CIRCLE_PROJECT_REPONAME.tar.gz s3://test-s3awscd/binaries/
 
 workflows:
@@ -20,7 +17,3 @@ workflows:
   workflow:
     jobs:
       - build
-      - deploy
-          type: approval
-          requires:
-            - build
